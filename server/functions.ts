@@ -118,7 +118,7 @@ export const getContactById = (id: string): Promise<any> =>
 export const removeContactById = (id: string): Promise<any> =>
     new Promise((resolve) => {
         exports["mysql-async"].mysql_execute(
-            `DELETE FROM phone_users_contacts WHERE id = @id`, // SQL Query
+            `DELETE FROM gksphone_users_contacts WHERE id = @id`, // SQL Query
             { "@id": id }, // Parameters
             (result: string) => {
                 resolve(result); // Handle result

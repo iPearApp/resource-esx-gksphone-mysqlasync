@@ -49,12 +49,15 @@ export default () => {
             const targetIdentifier: string = await getIdentifierByPhoneNumber(number) as string;
             if (targetIdentifier == null) return;
 
+            const target = ESX.GetPlayerFromIdentifier(targetIdentifier);
+            const isTargetOnline = target != null; // it means that the receiver is connected to the server
+
             client.messages.send(
                 player.getIdentifier(),
                 phoneNumber,
                 targetIdentifier,
                 number,
-                false,
+                isTargetOnline,
                 message
             );
         }
